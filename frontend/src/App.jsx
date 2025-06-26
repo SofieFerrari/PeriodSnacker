@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { ExpectedPeriodDate } from "./components/expectedPeriodDate";
 import { MoodSelection } from "./components/moodSelector";
-import { CycleWeekSelector } from "./components/cycleWeekSelector";
 import { SnackRec } from "./components/snackRec";
 
 const App = () => {
-  const [cycleWeek, setCycleWeek] = useState(null);
-  const [mood, setMood] = useState(null);
-  const [moods, setMoods] = useState([]);
-  const [recommendations, setRecommendations] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [cycleDay, setCycleDay] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [mood, setMood] = useState(null);
+  const [moodList, setMoodList] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
 
   // Funktion för att hämta humördata
   const fetchMoods = async () => {
@@ -21,22 +21,23 @@ const App = () => {
       }
 
       const data = await response.json();
-      setMoods(data); // Sätt humördata
+      setMoodList(data); // Sätt humördata
     } catch (err) {
       console.error(err);
       setError("Kunde inte hämta humördata.");
     }
   };
 
-  // Fetching snacks recommendations based on cycleWeek and mood
+  // Fetching snacks recommendations based on cycleDay and mood
   const fetchRecommendations = async () => {
-    if (cycleWeek && mood) {
+    if (cycleDay && mood) {
       setLoading(true);
       setError(null); // Nollställ eventuella tidigare fel
+      setRecommendations([]); // Nollställ rekommendationer innan ny hämtning
 
       try {
         const response = await fetch(
-          `http://localhost:3000/api/recommendations?cycleWeek=${cycleWeek}&mood=${mood}`
+          `http://localhost:3000/api/recommendations?cycleDay=${cycleDay}&mood=${mood}`
         );
 
         if (!response.ok) {
@@ -44,7 +45,10 @@ const App = () => {
         }
 
         const data = await response.json();
-        setRecommendations(data.snack ? [data.snack] : []); // Sätt rekommendationerna
+        setRecommendations(data.snack ? [data.snack] : []);
+        console.log(
+          `Hämtar rekommendationer för cykeldag ${cycleDay} och humör ${mood} och rekommenderar ${data.snack}`
+        );
       } catch (err) {
         setError(
           "Kunde inte hämta rekommendationer. Kontrollera att backend-servern körs."
@@ -64,15 +68,15 @@ const App = () => {
   // Använd useEffect för att anropa fetchRecommendations när cycleWeek eller mood ändras
   useEffect(() => {
     fetchRecommendations();
-  }, [cycleWeek, mood]);
+  }, [cycleDay, mood]);
 
   return (
     <div className="flex flex-col min-h-screen bg-red-100 p-10">
       <h1 className="text-3xl font-caprasimo self-center mb-20">
         Välkommen till Period-Snacker 🩸
       </h1>
-      <CycleWeekSelector setCycleWeek={setCycleWeek} />
-      <MoodSelection setMood={setMood} moods={moods} />
+      <ExpectedPeriodDate setCycleDay={setCycleDay} />
+      <MoodSelection setMood={setMood} moods={moodList} />
 
       {loading && <div>Laddar...</div>}
       {error && <div className="error">{error}</div>}

@@ -26,9 +26,9 @@ app.get("/api/mood", (req, res) => {
 });
 
 app.get("/api/recommendations", (req, res) => {
-  const { cycleWeek, mood } = req.query;
-  console.log(`Requested cycleWeek: ${cycleWeek}, mood: ${mood}`);
-  if (!cycleWeek || !mood) {
+  const { cycleDay, mood } = req.query;
+  console.log(`Requested cycleDay: ${cycleDay}, mood: ${mood}`);
+  if (!cycleDay || !mood) {
     return res.status(400).json({
       error: "Lägg till vilket hurmör du har och vilken cykeldag du är på",
     });
@@ -36,7 +36,7 @@ app.get("/api/recommendations", (req, res) => {
 
   // Hämta rekommenderade kategorier baserat på dag och humör
   const recommendedCategories = [
-    ...(snackData.cycleWeekRecommendations[cycleWeek] || []),
+    ...(snackData.cycleDayRecommendations[cycleDay]?.days || []),
     ...(snackData.moodRecommendations[mood] || []),
   ];
 

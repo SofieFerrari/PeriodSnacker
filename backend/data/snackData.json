@@ -1,0 +1,151 @@
+{
+  "periodSnacks": {
+    "categories": [
+      {
+        "id": "chocolate",
+        "name": "Chokladterapi",
+        "snacks": [
+          "Mörk choklad",
+          "Chokladbrownie",
+          "Varm choklad med grädde",
+          "Chokladglass",
+          "Chokladboll",
+          "Lysmelk",
+          "Nutella på sked",
+          "Nonstop"
+        ]
+      },
+      {
+        "id": "salty",
+        "name": "Salta snacks",
+        "snacks": [
+          "Chips",
+          "Crunchers",
+          "Nachos med ost",
+          "Popcorn med smör",
+          "Ostbågar",
+          "Nötter",
+          "Saltlakrits"
+        ]
+      },
+      {
+        "id": "sweet",
+        "name": "Söta frestelser",
+        "snacks": [
+          "Kanelbullar",
+          "Glass",
+          "Kakor",
+          "Tårta",
+          "Kladdkaka",
+          "Hallongrottor"
+        ]
+      },
+      {
+        "id": "comfort",
+        "name": "Tröstmat",
+        "snacks": [
+          "Mac and cheese",
+          "Pizza",
+          "Pannkakor med sylt och grädde",
+          "Grilled cheese sandwich",
+          "Köttbullar och potatismos",
+          "Lasagne",
+          "Pasta carbonara"
+        ]
+      },
+      {
+        "id": "healthyish",
+        "name": "Lite nyttigare alternativ",
+        "snacks": [
+          "Avokadotoast",
+          "Jordnötssmör på äpple",
+          "Yoghurt med honung",
+          "Bananskivor med choklad",
+          "Smoothie bowl",
+          "Nötmix",
+          "Proteinbar"
+        ]
+      }
+    ]
+  },
+  "cycleWeekRecommendations": {
+    "1": ["chocolate", "comfort", "sweet"],
+    "2": ["healthyish", "salty", "sweet"],
+    "3": ["healthyish", "sweet", "chocolate"],
+    "4": ["comfort", "chocolate", "salty"]
+  },
+  "moodRecommendations": {
+    "happy": ["sweet", "healthyish"],
+    "sad": ["chocolate", "comfort", "sweet"],
+    "irritated": ["salty", "chocolate", "comfort"],
+    "tired": ["comfort", "chocolate", "healthyish"],
+    "bloated": ["healthyish", "comfort"],
+    "crampy": ["chocolate", "comfort", "salty"]
+  },
+  "moods": [
+    {
+      "id": "happy",
+      "name": "Glad",
+      "emoji": "😊"
+    },
+    {
+      "id": "sad",
+      "name": "Ledsen",
+      "emoji": "😢"
+    },
+    {
+      "id": "irritated",
+      "name": "Irriterad",
+      "emoji": "😤"
+    },
+    {
+      "id": "tired",
+      "name": "Trött",
+      "emoji": "😴"
+    },
+    {
+      "id": "bloated",
+      "name": "Uppsvälld",
+      "emoji": "🎈"
+    },
+    {
+      "id": "crampy",
+      "name": "Mensvärk",
+      "emoji": "🤼‍♂️"
+    }
+  ],
+  "moodExplanations": {
+    "1": {
+      "happy": "Du är i follikelfasen. Njut av lite söta snacks för att boosta energin.",
+      "sad": "Choklad är en bra tröst i follikelfasen, vilket alltid är bra när du känner dig ledsen.",
+      "irritated": "Det kan vara en bra tid att välja tröstande snacks för att lugna nerverna.",
+      "tired": "En kopp varm choklad kan liva upp när du är trött.",
+      "bloated": "Välj lätta alternativ, som frukt, för att hantera uppsvälldhet.",
+      "crampy": "Tröstmat med bra näring kan hjälpa till under denna fas."
+    },
+    "2": {
+      "happy": "Under ägglossningsfasen är energin på topp! Njuta av friska snacks och choklad.",
+      "sad": "Välj salta snacks för extra förståelse om du är ledsen.",
+      "irritated": "Lyssna på din kropp och välj hälsosammare alternativ.",
+      "tired": "En energiboost med snacks före ägglossning kan hjälpa.",
+      "bloated": "Undvik tunga snacks; håll dig till lätta snacks som grönsaker.",
+      "crampy": "Tröstande snacks med mycket vatten kan hjälpa under denna fas."
+    },
+    "3": {
+      "happy": "Du befinner dig nu i lutealfasen. Unna dig lite extra godsaker!",
+      "sad": "Tillfredsställande snacks kan hjälpa att förhindra PMS-symptom.",
+      "irritated": "Tröstmat som pizza och andra snabba sötsaker är perfekt för denna fas.",
+      "tired": "Känner du dig trött? Välj snacks med protein och kolhydrater.",
+      "bloated": "Satsa på smoothies för att lugna magen.",
+      "crampy": "Ha snacks med magnesium, de är utmärkta mot mensvärk."
+    },
+    "4": {
+      "happy": "Trots trötthet, ge dig själv lite tid för dina goda snacks!",
+      "sad": "En kombination av söta och salta alternativ hjälper till att stabilisera humöret.",
+      "irritated": "Tröstmat ger ofta mycket lugn och hjälper till att stabilisera känslorna.",
+      "tired": "Koffeinfria energidrycker kan hjälpa dig att hålla dig alert.",
+      "bloated": "Humörsnacks som flingor med frukt kan göra susen.",
+      "crampy": "Värmande drycker kan vara precis vad kroppen behöver."
+    }
+  }
+}

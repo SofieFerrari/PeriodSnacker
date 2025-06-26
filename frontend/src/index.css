@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Caprasimo&display=swap");
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --font-atkinson: "Atkinson Hyperlegible", sans-serif;
+  --font-caprasimo: "Caprasimo", sans-serif;
+}
+
+@layer utilities {
+  .font-atkinson {
+    font-family: var(--font-atkinson);
+  }
+  .font-caprasimo {
+    font-family: var(--font-caprasimo);
+  }
+}
